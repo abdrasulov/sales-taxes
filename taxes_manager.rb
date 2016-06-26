@@ -9,7 +9,7 @@ class TaxesManager
   end
 
   def self.is_exempt?(product)
-    ['book', 'food', 'medical product'].include? product
+    ['book', 'food', 'medical product', 'chocolate bar'].include? product
   end
 
 end

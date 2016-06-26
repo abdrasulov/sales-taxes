@@ -15,7 +15,7 @@ class Receipt
 
     price_wo_taxes = price_per_item * quantity
     sales_tax = calculate_sales_tax(price_wo_taxes, product)
-    price_with_taxes = price_wo_taxes + sales_tax
+    price_with_taxes = ((price_wo_taxes + sales_tax) * 100).round / 100.0
 
     @sales_taxes_total = @sales_taxes_total + sales_tax
     @price_total = @price_total + price_with_taxes
@@ -39,7 +39,7 @@ class Receipt
       output << [item[:quantity], item[:product], item[:price]].join(', ')
     end
     output << ''
-    output << "Sales Taxes: #{@sales_taxes_total}"
+    output << "Sales Taxes: #{'%.2f' % @sales_taxes_total}"
     output << "Total: #{@price_total}"
     output << ''
     output.join("\n")

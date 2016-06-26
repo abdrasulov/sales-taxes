@@ -35,19 +35,19 @@ describe Receipt do
   end
 
 
-  # describe '#print_receipt' do
-  #   it 'displays appropriate result' do
-  #     receipt = Receipt.new
-  #     receipt.add_item '1', 'book', '12.49'
-  #     receipt.add_item '1', 'music cd', '14.99'
-  #     receipt.add_item '1', 'chocolate bar', '0.85'
-  #
-  #     res = receipt.print_receipt
-  #     expect(res).to include('1, book, 12.49')
-  #     expect(res).to include('1, music cd, 16.49')
-  #     # expect(res).to include('1, chocolate bar, 0.85')
-  #     # expect(res).to include('Sales Taxes: 1.50')
-  #     # expect(res).to include('Total: 29.83')
-  #   end
-  # end
+  describe '#print_receipt' do
+    it 'displays appropriate result' do
+      receipt = Receipt.new
+      receipt.add_item '1', 'book', '12.49'
+      receipt.add_item '1', 'music cd', '14.99'
+      receipt.add_item '1', 'chocolate bar', '0.85'
+
+      res = receipt.print_receipt
+      expect(res).to include('1, book, 12.49')
+      expect(res).to include('1, music cd, 16.49')
+      expect(res).to include('1, chocolate bar, 0.85')
+      expect(res).to include('Sales Taxes: 1.50')
+      expect(res).to include('Total: 29.83')
+    end
+  end
 end
